@@ -1,5 +1,9 @@
 package com.gery.kotlinbasics
 
 fun main() {
-    println("Hellow World!!")
+
+    var myAge = 25
+    println(myAge)
+    myAge = 28
+    println(myAge)
 }
