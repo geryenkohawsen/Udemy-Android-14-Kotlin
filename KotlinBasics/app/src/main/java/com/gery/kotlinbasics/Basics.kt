@@ -2,6 +2,11 @@ package com.gery.kotlinbasics
 
 fun main() {
 
-    var age: UShort = 35u
-    println(age)
+    val myTrue = true
+    val myFalse = false
+
+    println(myTrue || myFalse)
+    println(myTrue && myFalse)
+    println(!myTrue)
+    println(!myFalse)
 }
