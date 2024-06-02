@@ -2,8 +2,8 @@ package com.gery.kotlinbasics
 
 fun main() {
 
-    val myChar = '\u00AE'
-    val myChar2 = '\\'
-    
-    println(myChar)
+    val name = "Gery"
+
+    println(name.uppercase())
+    println(name + "enko" + "\t " + "Hawsen")
 }
