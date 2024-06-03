@@ -16,8 +16,10 @@ fun main() {
     val enteredValue = readln()
     age = enteredValue.toInt()
 
-    if (age >= 18) {
+    if (age in 18..39) {
         println("You can come in")
+    } else if (age >= 40) {
+        println("Too old")
     } else {
         println("You are not allowed")
     }
