@@ -2,25 +2,19 @@ package com.gery.kotlinbasics
 
 fun main() {
 
-    var age = 35
+    var computerChoice = ""
+    var playerChoice = ""
+    println("Rock, Paper, or Scissor? PICK!!")
+    playerChoice = readln()
 
-    // greater than >
-    // lower than <
-    // greater equal >=
-    // lower equal <=
-    // equal ==
-    // not equal !=
+    val randomNumber = (1..3).random()
 
-    println("Enter your age")
-
-    val enteredValue = readln()
-    age = enteredValue.toInt()
-
-    if (age in 18..39) {
-        println("You can come in")
-    } else if (age >= 40) {
-        println("Too old")
-    } else {
-        println("You are not allowed")
+    if (randomNumber == 1) {
+        computerChoice = "Rock"
+    } else if (randomNumber == 2) {
+        computerChoice = "Paper"
+    } else if (randomNumber == 3) {
+        computerChoice = "Scissor"
     }
+    println(computerChoice)
 }
