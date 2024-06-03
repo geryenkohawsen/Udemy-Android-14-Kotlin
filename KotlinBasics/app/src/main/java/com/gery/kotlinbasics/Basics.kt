@@ -2,8 +2,18 @@ package com.gery.kotlinbasics
 
 fun main() {
 
-    val name = "Gery"
+    var age = 35
 
-    println(name.uppercase())
-    println(name + "enko" + "\t " + "Hawsen")
+    // greater than >
+    // lower than <
+    // greater equal >=
+    // lower equal <=
+    // equal ==
+    // not equal !=
+
+    if (age >= 18) {
+        println("No")
+    } else {
+        println("Yes")
+    }
 }
