@@ -11,9 +11,14 @@ fun main() {
     // equal ==
     // not equal !=
 
+    println("Enter your age")
+
+    val enteredValue = readln()
+    age = enteredValue.toInt()
+
     if (age >= 18) {
-        println("No")
+        println("You can come in")
     } else {
-        println("Yes")
+        println("You are not allowed")
     }
 }
