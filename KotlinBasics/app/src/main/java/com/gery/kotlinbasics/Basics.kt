@@ -1,12 +1,10 @@
 package com.gery.kotlinbasics
 
 fun main() {
-    makeCoffee()
-    makeCoffee()
+    makeCoffee(1)
+    makeCoffee(25)
 }
 
-fun makeCoffee() {
-    println("Buy coffee beans")
-    println("Grind coffee beans")
-    println("Make coffee")
+fun makeCoffee(sugarCount : Int) {
+    println("Make coffee with $sugarCount")
 }
