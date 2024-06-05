@@ -1,13 +1,12 @@
 package com.gery.kotlinbasics
 
 fun main() {
+    makeCoffee()
+    makeCoffee()
+}
 
-    var userInput = readln()
-    while (userInput == "1") {
-        println("While loop executed")
-        userInput = readln()
-    }
-
-    print("Loop finished!")
-
+fun makeCoffee() {
+    println("Buy coffee beans")
+    println("Grind coffee beans")
+    println("Make coffee")
 }
