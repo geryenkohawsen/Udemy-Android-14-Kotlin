@@ -1,9 +1,15 @@
 package com.gery.kotlinbasics
 
 fun main() {
-    makeCoffee(1, "test1")
-    makeCoffee(0, "test2")
-    makeCoffee(25, "test3")
+
+    println("Who is the coffee for?")
+    val name = readln()
+
+    println("How much sugar?")
+    val sugarCountInput = readln()
+    val sugarCountInt = sugarCountInput.toInt()
+
+    makeCoffee(sugarCountInt, name)
 }
 
 fun makeCoffee(sugarCount: Int, name: String) {
