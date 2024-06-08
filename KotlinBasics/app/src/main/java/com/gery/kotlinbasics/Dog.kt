@@ -1,6 +1,6 @@
 package com.gery.kotlinbasics
 
-class Dog {
+class Dog constructor(val name: String, val breed: String, var age: Int = 0) {
 
     // A code that will execute when an instance of a class is created
     init {
@@ -8,6 +8,6 @@ class Dog {
     }
 
     fun bark() {
-        println("Woof woof")
+        println("$name Woof woof")
     }
 }
