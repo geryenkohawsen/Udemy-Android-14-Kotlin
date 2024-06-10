@@ -29,6 +29,9 @@ fun main() {
     shoppingList[3] = "NEW Fan"
     println(shoppingList[3])
 
+    // Same way as shoppingList[1]
+    shoppingList.set(1, "Water Cooling")
+    println(shoppingList)
 }
 
 
