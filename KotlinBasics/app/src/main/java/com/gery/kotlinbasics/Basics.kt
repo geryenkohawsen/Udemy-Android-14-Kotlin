@@ -8,30 +8,38 @@ fun main() {
     val shoppingList = mutableListOf("Processor", "RAM", "CPU", "RTX 3060")
     println(shoppingList)
 
-    // adding items to list
-    shoppingList.add("Fan")
-    println(shoppingList)
+//    // adding items to list
+//    shoppingList.add("Fan")
+//    println(shoppingList)
+//
+//    // removing items
+//    shoppingList.remove("RTX 3060")
+//    println(shoppingList)
+//    shoppingList.add("RTX 4090")
+//    println(shoppingList)
+//
+//    // removing by index
+//    shoppingList.removeAt(2)
+//    println(shoppingList)
+//
+//    // adding by index
+//    shoppingList.add(0, "i9 CPU")
+//    println(shoppingList)
+//    println("Index 2 " + shoppingList[2])
+//    shoppingList[3] = "NEW Fan"
+//    println(shoppingList[3])
+//
+//    // Same way as shoppingList[1]
+//    shoppingList.set(1, "Water Cooling")
+//    println(shoppingList)
 
-    // removing items
-    shoppingList.remove("RTX 3060")
-    println(shoppingList)
-    shoppingList.add("RTX 4090")
-    println(shoppingList)
-
-    // removing by index
-    shoppingList.removeAt(2)
-    println(shoppingList)
-
-    // adding by index
-    shoppingList.add(0, "i9 CPU")
-    println(shoppingList)
-    println("Index 2 " + shoppingList[2])
-    shoppingList[3] = "NEW Fan"
-    println(shoppingList[3])
-
-    // Same way as shoppingList[1]
-    shoppingList.set(1, "Water Cooling")
-    println(shoppingList)
+    // Check if a list contains
+    val hasRam = shoppingList.contains("RAM")
+    if (hasRam) {
+        println("There is a RAM in the list")
+    } else {
+        println("No RAM in the list")
+    }
 }
 
 
