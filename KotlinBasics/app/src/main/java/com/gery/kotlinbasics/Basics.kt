@@ -25,6 +25,10 @@ fun main() {
     // adding by index
     shoppingList.add(0, "i9 CPU")
     println(shoppingList)
+    println("Index 2 " + shoppingList[2])
+    shoppingList[3] = "NEW Fan"
+    println(shoppingList[3])
+
 }
 
 
