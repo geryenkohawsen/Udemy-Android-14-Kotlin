@@ -1,27 +1,13 @@
 package com.gery.kotlinbasics
 
-import androidx.annotation.Size
+fun main() {
 
+}
+
+/*
 data class CoffeeDetails(
     val sugarCount: Int, val name: String, val size: String, val creamAmount: Int
 )
-
-fun main() {
-
-    val coffeeForDenis =
-        CoffeeDetails(name = "Denis", size = "Large", sugarCount = 2, creamAmount = 1)
-
-    makeCoffee(coffeeForDenis)/*
-    // Creating an object (instance) of the class dog
-    val anjing = Dog("Sani", "Tai")
-
-    println("${anjing.name} is a ${anjing.age} years old ${anjing.breed}")
-    println("A year has passed!")
-    anjing.age = 21
-
-    println("${anjing.name} is a ${anjing.age} years old ${anjing.breed}")
-    */
-}
 
 fun askCoffeeDetails() {
     println("Who is the coffee for?")
@@ -47,3 +33,4 @@ fun makeCoffee(coffeeDetails: CoffeeDetails) {
         }
     }
 }
+*/
