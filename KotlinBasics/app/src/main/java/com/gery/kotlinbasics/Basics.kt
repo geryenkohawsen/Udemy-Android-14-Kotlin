@@ -17,6 +17,14 @@ fun main() {
     println(shoppingList)
     shoppingList.add("RTX 4090")
     println(shoppingList)
+
+    // removing by index
+    shoppingList.removeAt(2)
+    println(shoppingList)
+
+    // adding by index
+    shoppingList.add(0, "i9 CPU")
+    println(shoppingList)
 }
 
 
