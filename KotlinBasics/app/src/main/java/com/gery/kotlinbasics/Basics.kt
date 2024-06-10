@@ -2,7 +2,23 @@ package com.gery.kotlinbasics
 
 fun main() {
 
+    // Immutable list
+    val immutShoppingList = listOf("Processor", "RAM", "CPU")
+    // Mutable List
+    val shoppingList = mutableListOf("Processor", "RAM", "CPU", "RTX 3060")
+    println(shoppingList)
+
+    // adding items to list
+    shoppingList.add("Fan")
+    println(shoppingList)
+
+    // removing items
+    shoppingList.remove("RTX 3060")
+    println(shoppingList)
+    shoppingList.add("RTX 4090")
+    println(shoppingList)
 }
+
 
 /*
 data class CoffeeDetails(
