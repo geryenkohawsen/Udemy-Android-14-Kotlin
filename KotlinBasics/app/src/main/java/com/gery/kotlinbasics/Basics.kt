@@ -41,12 +41,8 @@ fun main() {
         println("No RAM in the list")
     }
 
-    for (item in shoppingList) {
-        println(item)
-        if (item == "RAM") {
-            shoppingList.removeLast()
-            break
-        }
+    for (idx in 0 until shoppingList.size) {
+        println("item ${shoppingList[idx]} is at index $idx")
     }
 
     println(shoppingList)
