@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -33,9 +34,12 @@ class MainActivity : ComponentActivity() {
 fun UnitConverter() {
     Column {
         // Here all the UI elements will be stacked below each other
+        Text(text = "Unit Converter")
+        OutlinedTextField(value = "", onValueChange = {
+
+        })
+
         Row {
-            Greeting(name = "Android")
-            Greeting(name = "Android")
         }
     }
 }
