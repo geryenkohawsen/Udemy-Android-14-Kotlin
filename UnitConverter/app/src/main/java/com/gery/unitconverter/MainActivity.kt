@@ -19,7 +19,6 @@ import com.gery.unitconverter.ui.theme.UnitConverterTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContent {
             UnitConverterTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
@@ -41,21 +40,12 @@ fun UnitConverter() {
 
         Row {
         }
+        Text(text = "Result:")
     }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
 }
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
-    UnitConverterTheme {
-        Greeting("Android")
-    }
+fun UnitConverterPreview() {
+    UnitConverter()
 }
