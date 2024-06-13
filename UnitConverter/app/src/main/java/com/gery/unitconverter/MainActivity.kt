@@ -5,11 +5,15 @@ import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material3.Button
+import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -42,15 +46,23 @@ fun UnitConverter() {
         })
 
         Row {
-            val context = LocalContext.current
-            Button(onClick = {
-                Toast.makeText(
-                    context,
-                    "Thanks for clicking!",
-                    Toast.LENGTH_LONG
-                ).show()
-            }) {
-                Text(text = "MyButton")
+            Box {
+                Button(onClick = { /*TODO*/ }) {
+                    Text(text = "Select")
+                    Icon(
+                        imageVector = Icons.Default.ArrowDropDown,
+                        contentDescription = "Arrow Down"
+                    )
+                }
+            }
+            Box {
+                Button(onClick = { /*TODO*/ }) {
+                    Text(text = "Select")
+                    Icon(
+                        imageVector = Icons.Default.ArrowDropDown,
+                        contentDescription = "Arrow Down"
+                    )
+                }
             }
         }
         Text(text = "Result:")
