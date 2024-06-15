@@ -57,7 +57,7 @@ fun UnitConverter() {
 
     Column(
         modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
+        verticalArrangement = Arrangement. Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         // Here all the UI elements will be stacked below each other
@@ -72,18 +72,29 @@ fun UnitConverter() {
             )
         Spacer(modifier = Modifier.height(16.dp))
         Row {
+            // Input Box
             Box {
-                Button(onClick = { /*TODO*/ }) {
+                Button(onClick = {
+                    isInputExpanded = true
+                }) {
                     Text(text = "Select")
                     Icon(
                         imageVector = Icons.Default.ArrowDropDown,
                         contentDescription = "Arrow Down"
                     )
                 }
-                DropdownMenu(expanded = isInputExpanded, onDismissRequest = { /*TODO*/ }) {
+                DropdownMenu(
+                    expanded = isInputExpanded,
+                    onDismissRequest = {
+                    isInputExpanded = false
+                }) {
                     DropdownMenuItem(
                         text = { Text(text = "Centimeters") },
-                        onClick = { /*TODO*/ }
+                        onClick = {
+                            isInputExpanded = false
+                            inputUnit = "Centimeters"
+                            conversionFactor.doubleValue = 0.01
+                        }
                     )
                     DropdownMenuItem(
                         text = { Text(text = "Meters") },
@@ -100,15 +111,22 @@ fun UnitConverter() {
                 }
             }
             Spacer(modifier = Modifier.width(16.dp))
+            // Output Box
             Box {
-                Button(onClick = { /*TODO*/ }) {
+                Button(onClick = {
+                    isOutputExpanded = true
+                }) {
                     Text(text = "Select")
                     Icon(
                         imageVector = Icons.Default.ArrowDropDown,
                         contentDescription = "Arrow Down"
                     )
                 }
-                DropdownMenu(expanded = isOutputExpanded, onDismissRequest = { /*TODO*/ }) {
+                DropdownMenu(
+                    expanded = isOutputExpanded,
+                    onDismissRequest = {
+                        isOutputExpanded = false
+                    }) {
                     DropdownMenuItem(
                         text = { Text(text = "Centimeters") },
                         onClick = { /*TODO*/ }
