@@ -50,17 +50,19 @@ class MainActivity : ComponentActivity() {
 fun UnitConverter() {
     var inputValue by remember { mutableStateOf("") }
     var outputValue by remember { mutableStateOf("") }
-    var inputUnit by remember { mutableStateOf("Centimeters") }
+    var inputUnit by remember { mutableStateOf("Meters") }
     var outputUnit by remember { mutableStateOf("Meters") }
     var isInputExpanded by remember { mutableStateOf(false) }
     var isOutputExpanded by remember { mutableStateOf(false) }
-    val conversionFactor = remember { mutableDoubleStateOf(0.01) }
+    val inputConversionFactor = remember { mutableDoubleStateOf(1.0) }
+    val outputConversionFactor = remember { mutableDoubleStateOf(1.0) }
 
     fun convertUnits() {
 
         // ?: - elvis operator
         val inputValueDouble = inputValue.toDoubleOrNull() ?: 0.0
-        val result = (inputValueDouble * conversionFactor.doubleValue * 100.0).roundToInt() / 100
+        val result =
+            (inputValueDouble * inputConversionFactor.doubleValue * 100.0 / outputConversionFactor.doubleValue).roundToInt() / 100.0
         outputValue = result.toString()
     }
 
@@ -76,6 +78,7 @@ fun UnitConverter() {
             value = inputValue,
             onValueChange = {
                 inputValue = it
+                convertUnits()
             },
             label = { Text(text = "Enter Value") }
         )
@@ -86,7 +89,7 @@ fun UnitConverter() {
                 Button(onClick = {
                     isInputExpanded = true
                 }) {
-                    Text(text = "Select")
+                    Text(text = inputUnit)
                     Icon(
                         imageVector = Icons.Default.ArrowDropDown,
                         contentDescription = "Arrow Down"
@@ -102,7 +105,7 @@ fun UnitConverter() {
                         onClick = {
                             isInputExpanded = false
                             inputUnit = "Centimeters"
-                            conversionFactor.doubleValue = 0.01
+                            inputConversionFactor.doubleValue = 0.01
                             convertUnits()
                         }
                     )
@@ -111,7 +114,7 @@ fun UnitConverter() {
                         onClick = {
                             isInputExpanded = false
                             inputUnit = "Meters"
-                            conversionFactor.doubleValue = 1.0
+                            inputConversionFactor.doubleValue = 1.0
                             convertUnits()
                         }
                     )
@@ -120,7 +123,7 @@ fun UnitConverter() {
                         onClick = {
                             isInputExpanded = false
                             inputUnit = "Feet"
-                            conversionFactor.doubleValue = 0.3048
+                            inputConversionFactor.doubleValue = 0.3048
                             convertUnits()
                         }
                     )
@@ -129,7 +132,7 @@ fun UnitConverter() {
                         onClick = {
                             isInputExpanded = false
                             inputUnit = "Millimeters"
-                            conversionFactor.doubleValue = 0.001
+                            inputConversionFactor.doubleValue = 0.001
                             convertUnits()
                         }
                     )
@@ -141,7 +144,7 @@ fun UnitConverter() {
                 Button(onClick = {
                     isOutputExpanded = true
                 }) {
-                    Text(text = "Select")
+                    Text(text = outputUnit)
                     Icon(
                         imageVector = Icons.Default.ArrowDropDown,
                         contentDescription = "Arrow Down"
@@ -154,25 +157,45 @@ fun UnitConverter() {
                     }) {
                     DropdownMenuItem(
                         text = { Text(text = "Centimeters") },
-                        onClick = { /*TODO*/ }
+                        onClick = {
+                            isOutputExpanded = false
+                            outputUnit = "Centimeters"
+                            outputConversionFactor.doubleValue = 0.01
+                            convertUnits()
+                        }
                     )
                     DropdownMenuItem(
                         text = { Text(text = "Meters") },
-                        onClick = { /*TODO*/ }
+                        onClick = {
+                            isOutputExpanded = false
+                            outputUnit = "Meters"
+                            outputConversionFactor.doubleValue = 1.0
+                            convertUnits()
+                        }
                     )
                     DropdownMenuItem(
                         text = { Text(text = "Feet") },
-                        onClick = { /*TODO*/ }
+                        onClick = {
+                            isOutputExpanded = false
+                            outputUnit = "Feet"
+                            outputConversionFactor.doubleValue = 0.3048
+                            convertUnits()
+                        }
                     )
                     DropdownMenuItem(
                         text = { Text(text = "Millimeters") },
-                        onClick = { /*TODO*/ }
+                        onClick = {
+                            isOutputExpanded = false
+                            outputUnit = "Millimeters"
+                            outputConversionFactor.doubleValue = 0.001
+                            convertUnits()
+                        }
                     )
                 }
             }
         }
         Spacer(modifier = Modifier.height(16.dp))
-        Text(text = "Result:")
+        Text(text = "Result: $outputValue $outputUnit")
     }
 }
 
