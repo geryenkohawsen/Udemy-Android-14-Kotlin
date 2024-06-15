@@ -21,6 +21,11 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableDoubleStateOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -42,6 +47,14 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun UnitConverter() {
+    var inputValue by remember { mutableStateOf("") }
+    var outputValue by remember { mutableStateOf("") }
+    var inputUnit by remember { mutableStateOf("Centimeters") }
+    var outputUnit by remember { mutableStateOf("Meters") }
+    var isInputExpanded by remember { mutableStateOf(false) }
+    var isOutputExpanded by remember { mutableStateOf(false) }
+    val conversionFactor = remember { mutableDoubleStateOf(0.01) }
+
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -50,9 +63,13 @@ fun UnitConverter() {
         // Here all the UI elements will be stacked below each other
         Text(text = "Unit Converter")
         Spacer(modifier = Modifier.height(16.dp))
-        OutlinedTextField(value = "", onValueChange = {
-
-        })
+        OutlinedTextField(
+            value = inputValue,
+            onValueChange = {
+                inputValue = it
+            },
+            label = { Text(text = "Enter Value")}
+            )
         Spacer(modifier = Modifier.height(16.dp))
         Row {
             Box {
@@ -63,7 +80,7 @@ fun UnitConverter() {
                         contentDescription = "Arrow Down"
                     )
                 }
-                DropdownMenu(expanded = true, onDismissRequest = { /*TODO*/ }) {
+                DropdownMenu(expanded = isInputExpanded, onDismissRequest = { /*TODO*/ }) {
                     DropdownMenuItem(
                         text = { Text(text = "Centimeters") },
                         onClick = { /*TODO*/ }
@@ -91,7 +108,7 @@ fun UnitConverter() {
                         contentDescription = "Arrow Down"
                     )
                 }
-                DropdownMenu(expanded = true, onDismissRequest = { /*TODO*/ }) {
+                DropdownMenu(expanded = isOutputExpanded, onDismissRequest = { /*TODO*/ }) {
                     DropdownMenuItem(
                         text = { Text(text = "Centimeters") },
                         onClick = { /*TODO*/ }
