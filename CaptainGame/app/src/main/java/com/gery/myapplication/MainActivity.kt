@@ -12,9 +12,11 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.gery.myapplication.ui.theme.MyApplicationTheme
@@ -39,7 +41,8 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun CaptainGame(modifier: Modifier) {
     val treasuredFound = remember { mutableIntStateOf(0) }
-    val direction = remember { mutableStateOf("North") }
+    // The [by] keyword will need additional import for the getter and setter
+    var direction by remember { mutableStateOf("North") }
     val stormOrTreasure = remember { mutableStateOf("") }
 
     Column(
@@ -48,9 +51,9 @@ fun CaptainGame(modifier: Modifier) {
         verticalArrangement = Arrangement.Center
     ) {
         Text(text = "Treasure Found: ${treasuredFound.intValue}")
-        Text(text = "Current Direction: ${direction.value}")
+        Text(text = "Current Direction: $direction")
         Button(onClick = {
-            direction.value = "East"
+            direction = "East"
 
             // 50/50 randomizer
             if (Random.nextBoolean()) {
@@ -63,7 +66,7 @@ fun CaptainGame(modifier: Modifier) {
             Text(text = "Sail East")
         }
         Button(onClick = {
-            direction.value = "West"
+            direction = "West"
 
             // 50/50 randomizer
             if (Random.nextBoolean()) {
@@ -75,7 +78,7 @@ fun CaptainGame(modifier: Modifier) {
             Text(text = "Sail West")
         }
         Button(onClick = {
-            direction.value = "North"
+            direction = "North"
 
             // 50/50 randomizer
             if (Random.nextBoolean()) {
@@ -87,7 +90,7 @@ fun CaptainGame(modifier: Modifier) {
             Text(text = "Sail North")
         }
         Button(onClick = {
-            direction.value = "South"
+            direction = "South"
 
             // 50/50 randomizer
             if (Random.nextBoolean()) {
