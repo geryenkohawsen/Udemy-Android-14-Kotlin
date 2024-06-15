@@ -17,6 +17,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -28,8 +29,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.gery.unitconverter.ui.theme.UnitConverterTheme
 import kotlin.math.roundToInt
 
@@ -57,6 +62,12 @@ fun UnitConverter() {
     val inputConversionFactor = remember { mutableDoubleStateOf(1.0) }
     val outputConversionFactor = remember { mutableDoubleStateOf(1.0) }
 
+    val customTextStyle = TextStyle(
+        fontFamily = FontFamily.Monospace,
+        fontSize = 32.sp,
+        color = Color.Blue
+    )
+
     fun convertUnits() {
 
         // ?: - elvis operator
@@ -72,7 +83,10 @@ fun UnitConverter() {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         // Here all the UI elements will be stacked below each other
-        Text(text = "Unit Converter")
+        Text(
+            text = "Unit Converter",
+            style = customTextStyle
+        )
         Spacer(modifier = Modifier.height(16.dp))
         OutlinedTextField(
             value = inputValue,
@@ -195,7 +209,10 @@ fun UnitConverter() {
             }
         }
         Spacer(modifier = Modifier.height(16.dp))
-        Text(text = "Result: $outputValue $outputUnit")
+        Text(
+            text = "Result: $outputValue $outputUnit",
+            style = MaterialTheme.typography.headlineLarge
+        )
     }
 }
 
