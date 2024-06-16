@@ -29,37 +29,14 @@ class MainActivity : ComponentActivity() {
         setContent {
             GeryShoppingListAppTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-
-                    // stateItems
-                    var sItems by remember { mutableStateOf(listOf<ShoppingItem>()) }
-                    Column(
+                    ShoppingListApp(
                         modifier = Modifier
                             .fillMaxSize()
-                            .padding(innerPadding),
-                        verticalArrangement = Arrangement.Center
-                    ) {
-                        Button(
-                            modifier = Modifier.align(Alignment.CenterHorizontally),
-                            onClick = { /*TODO*/ }
-                        ) {
-                            Text(text = "Add Item")
-                        }
-                        LazyColumn(
-                            modifier = Modifier
-                                .fillMaxSize()
-                                .padding(16.dp)
-                        ) {
-                            items(sItems) {
-
-                            }
-                        }
-                    }
+                            .padding(innerPadding)
+                    )
                 }
             }
         }
     }
 }
 
-data class ShoppingItem(val id: Int, var name: String, var quantity: Int, var isEditing: Boolean) {
-
-}
