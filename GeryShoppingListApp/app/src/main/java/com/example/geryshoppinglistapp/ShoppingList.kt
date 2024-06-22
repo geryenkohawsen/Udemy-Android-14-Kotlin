@@ -1,7 +1,8 @@
 package com.example.geryshoppinglistapp
 
- import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -25,7 +26,7 @@ data class ShoppingItem(
     val id: Int,
     var name: String,
     var quantity: Int,
-    var isEditing: Boolean
+    var isEditing: Boolean = false
 )
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -59,9 +60,37 @@ fun ShoppingListApp(modifier: Modifier = Modifier) {
         if (showDialog) {
             AlertDialog(
                 onDismissRequest = { showDialog = false },
-                confirmButton = { /*TODO*/ },
+                confirmButton = {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(8.dp),
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        Button(onClick = {
+                            if (itemName.isNotBlank()) {
+                                val newItem = ShoppingItem(
+                                    id = sItems.size + 1,
+                                    name = itemName,
+                                    quantity = itemQuantity.toInt()
+                                )
+                                sItems = sItems + newItem
+                                showDialog = false
+                                itemName = ""
+                                itemQuantity = ""
+                            }
+                        }) {
+                            Text("Add")
+                        }
+                        Button(onClick = {
+                            showDialog = false
+                        }) {
+                            Text("Cancel")
+                        }
+                    }
+                },
                 title = {
-                    Text(text= "Test Alert Dialog")
+                    Text(text = "Test Alert Dialog")
                 },
                 text = {
                     Column {
@@ -71,7 +100,9 @@ fun ShoppingListApp(modifier: Modifier = Modifier) {
                                 itemName = it
                             },
                             singleLine = true,
-                            modifier = Modifier.fillMaxWidth().padding(8.dp)
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(8.dp)
                         )
 
                         OutlinedTextField(
@@ -80,7 +111,9 @@ fun ShoppingListApp(modifier: Modifier = Modifier) {
                                 itemQuantity = it
                             },
                             singleLine = true,
-                            modifier = Modifier.fillMaxWidth().padding(8.dp)
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(8.dp)
                         )
                     }
                 }
