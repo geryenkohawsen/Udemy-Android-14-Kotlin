@@ -49,6 +49,8 @@ fun ShoppingListApp(modifier: Modifier = Modifier) {
             modifier = Modifier.align(Alignment.CenterHorizontally),
             onClick = { showDialog = true }
         ) {
+//            val doubleNumber: (Int) -> Int = {it * 2} // Lambda Expression
+//            Text(doubleNumber(12).toString())
             Text(text = "Add Item")
         }
         LazyColumn(
