@@ -51,6 +51,15 @@ android {
 
 dependencies {
 
+    // Compose ViewModel
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+
+    // Network Calls
+    implementation(libs.retrofit)
+
+    // Json to Kotlin object mapping
+    implementation(libs.converter.gson)
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
